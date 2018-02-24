@@ -23,18 +23,21 @@ app.listen(PORT, function() {
 // =============================================================
 var customers = [
   {
+    routeName: "yoda",
     name: "yoda",
     phoneNumber: "111-1111",
     email: "yoda@email.com",
     uniqueID: 1,
   },
   {
+    routeName: "darthmaul",
     name: "darthmaul",
     phoneNumber: "222-2222",
     email: "darthmaul@email.com",
     uniqueID: 2,
   },
   {
+    routeName: "obiwankenobi",
     name: "obiwankenobi",
     phoneNumber: "333-3333",
     email: "obiwankenobi@email.com",
@@ -53,14 +56,18 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// Get all characters
 app.get("/reservations", function(req, res) {
+  res.sendFile(path.join(__dirname, "/reservation.html"));
+});
+
+// Get all characters
+app.get("/all", function(req, res) {
   res.json(customers);
 });
 
 // Search for specific customer (or all customer) - provides JSON
 app.get("/api/:tables?", function(req, res) {
-  var chosen = req.params.customers;
+  var chosen = req.params.tables;
 
   if (chosen) {
     console.log(chosen);
