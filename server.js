@@ -44,6 +44,20 @@ var customers = [
 
 // Routes
 // =============================================================
+// Basic route that sends the user first to the AJAX Page
+app.get("/tables", function(req, res) {
+  res.sendFile(path.join(__dirname, "views.html"));
+});
+
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+// Get all characters
+app.get("/reservations", function(req, res) {
+  res.json(customers);
+});
+
 // Search for specific customer (or all customer) - provides JSON
 app.get("/api/:tables?", function(req, res) {
   var chosen = req.params.customers;
