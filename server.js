@@ -18,3 +18,29 @@ app.use(bodyParser.json());
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
+
+// Hot-Restaurant Characters (DATA)
+// =============================================================
+var customers = [
+  {
+    name: "yoda",
+    phone number: "111-1111",
+    email: "yoda@email.com",
+    unique ID: 1,
+  },
+  {
+    name: "darthmaul",
+    phone number: "222-2222",
+    email: "darthmaul@email.com",
+    unique ID: 2,
+  },
+  {
+    name: "obiwankenobi",
+    phone number: "333-3333",
+    email: "obiwankenobi@email.com",
+    unique ID: 3,
+  }
+];
+
+// Routes
+// =============================================================
