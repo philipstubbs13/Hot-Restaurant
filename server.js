@@ -24,23 +24,39 @@ app.listen(PORT, function() {
 var customers = [
   {
     name: "yoda",
-    phone number: "111-1111",
+    phoneNumber: "111-1111",
     email: "yoda@email.com",
-    unique ID: 1,
+    uniqueID: 1,
   },
   {
     name: "darthmaul",
-    phone number: "222-2222",
+    phoneNumber: "222-2222",
     email: "darthmaul@email.com",
-    unique ID: 2,
+    uniqueID: 2,
   },
   {
     name: "obiwankenobi",
-    phone number: "333-3333",
+    phoneNumber: "333-3333",
     email: "obiwankenobi@email.com",
-    unique ID: 3,
+    uniqueID: 3,
   }
 ];
 
 // Routes
 // =============================================================
+// Search for specific customer (or all customer) - provides JSON
+app.get("/api/:tables?", function(req, res) {
+  var chosen = req.params.customers;
+
+  if (chosen) {
+    console.log(chosen);
+
+    for (var i = 0; i < customers.length; i++) {
+      if (chosen === customers[i].routeName) {
+        return res.json(customers[i]);
+      }
+    }
+    return res.json(false);
+  }
+  return res.json(customers);
+});
